@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://items/terrain.tscn" type="PackedScene" id=1]
 [ext_resource path="res://items/chimney.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://items/woodpile-fire.tscn" type="PackedScene" id=8]
 [ext_resource path="res://items/wreath.tscn" type="PackedScene" id=9]
 [ext_resource path="res://items/tree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://items/holly.tscn" type="PackedScene" id=11]
 
 [node name="MainLevel" type="Spatial"]
 
@@ -45,6 +46,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.97842, 5.77139 )
 
 [node name="tree" parent="." instance=ExtResource( 10 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 78.3151, -0.0797387, -62.6111 )
+
+[node name="holly" parent="tree" instance=ExtResource( 11 )]
+transform = Transform( 0.440525, -0.468081, -0.766053, -0.154708, 0.800964, -0.578379, 0.88431, 0.373304, 0.280429, -0.136982, 0.115342, 0.0695829 )
 
 [node name="house_1" parent="." instance=ExtResource( 4 )]
 transform = Transform( -0.777754, 0.0961793, 0.621166, 0.00815741, 0.989685, -0.143026, -0.628515, -0.106172, -0.770517, -58.3426, 5.36277, 58.6444 )
