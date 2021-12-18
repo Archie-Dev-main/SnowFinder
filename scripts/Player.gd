@@ -17,6 +17,10 @@ var rotation_helper
 
 var MOUSE_SENSITIVITY = 0.05
 
+var valid_target = null
+var target_bool = false
+var score = 0
+
 
 func _ready():
 	camera = $Rotation_Helper/Camera
@@ -28,7 +32,21 @@ func _ready():
 func _physics_process(delta):
 	process_input(delta)
 	process_movement(delta)
-
+	#print($Rotation_Helper/RayCast.get_collider())
+	
+	if $Rotation_Helper/RayCast.get_collider() != null and $Rotation_Helper/RayCast.get_collider().is_in_group("collectible"):
+		valid_target = $Rotation_Helper/RayCast.get_collider().get_parent()
+		valid_target.get_child(0).get_child(0).show()
+		target_bool = true
+	
+	if ($Rotation_Helper/RayCast.get_collider() == null or !$Rotation_Helper/RayCast.get_collider().is_in_group("collectible")) and target_bool:
+		valid_target.get_child(0).get_child(0).hide()
+		valid_target = null
+		target_bool = false
+	
+	if valid_target != null and Input.is_action_just_pressed("interact"):
+		valid_target.hide()
+		increase_score()
 
 func process_input(_delta):
 	# ----------------------------------
@@ -103,3 +121,11 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+
+
+func increase_score():
+	score += 1
+	if score < 7:
+		$HUD_Layer/HUD/Score.text = "Score: " + str(score) + "/7"
+	else:
+		$HUD_Layer/HUD/Score.text = "YOU WIN!"
