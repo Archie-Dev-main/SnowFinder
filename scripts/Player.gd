@@ -4,12 +4,12 @@ extends KinematicBody
 const GRAVITY = -24.8
 var vel = Vector3()
 const MAX_SPEED = 20
-const JUMP_SPEED = 18
+const JUMP_SPEED = 10
 const ACCEL = 4.5
 
 var dir = Vector3()
 
-const DEACCEL= 16
+const DEACCEL = 16
 const MAX_SLOPE_ANGLE = 40
 
 var camera
@@ -88,7 +88,7 @@ func process_movement(delta):
 		accel = ACCEL
 	else:
 		accel = DEACCEL
-		
+	
 	hvel = hvel.linear_interpolate(target, accel * delta)
 	vel.x = hvel.x
 	vel.z = hvel.z
