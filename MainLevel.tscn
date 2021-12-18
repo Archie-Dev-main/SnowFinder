@@ -30,6 +30,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.86615, 0 )
 [node name="woodpile-fire" parent="Starting Area/chimney" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.277443, 0 )
 
+[node name="OmniLight" type="OmniLight" parent="Starting Area/chimney"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.650489, 0 )
+omni_range = 3.0
+
 [node name="woodpile" parent="Starting Area" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.74304, 11.0951 )
 
