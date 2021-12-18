@@ -105,3 +105,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -250 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Boundries/Wall-4"]
 shape = SubResource( 1 )
+
+[node name="end_camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.993027, 0.117884, 0, -0.117884, 0.993027, 0, -8.384, 4.167 )
+far = 500.0
+
+[node name="HUDLayer" type="CanvasLayer" parent="end_camera"]
+
+[node name="HUD" type="Control" parent="end_camera/HUDLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

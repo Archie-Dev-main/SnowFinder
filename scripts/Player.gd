@@ -47,6 +47,10 @@ func _physics_process(delta):
 	if valid_target != null and Input.is_action_just_pressed("interact"):
 		valid_target.hide()
 		increase_score()
+	
+	if Input.is_action_just_pressed("win"):
+		for i in 10:
+			increase_score()
 
 func process_input(_delta):
 	# ----------------------------------
@@ -129,3 +133,5 @@ func increase_score():
 		$HUD_Layer/HUD/Score.text = "Score: " + str(score) + "/7"
 	else:
 		$HUD_Layer/HUD/Score.text = "YOU WIN!"
+		get_parent().get_node("end_camera").set_current(true)
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
